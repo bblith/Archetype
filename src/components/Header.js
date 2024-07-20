@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Header.css';
-import logo from '../assets/Logo.png'; 
+import Logo from '../assets/Logo.png'; 
 
 const Header = () => {
   return (
@@ -10,7 +10,7 @@ const Header = () => {
           <h1>JagHacks | 2024</h1>
         </div>
         <div className="header-right">
-          <img src={logo} alt="JagHacks Logo" className="logo" />
+          <img src={Logo} alt="Cyber Beyond Logo" className="logo" />
         </div>
       </div>
     </header>

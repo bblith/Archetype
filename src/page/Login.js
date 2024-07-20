@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
-import '../styles/Login.css'; 
-import cyberBeyond from '../assets/CyberBeyond.png'; 
+import '../styles/SignUp.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -42,12 +41,9 @@ const Login = () => {
   return (
     <main className="login-main">
       <div className="login-content">
-        <div className="login-image">
-          <img src={cyberBeyond} alt="Login Graphic" />
-        </div>
         <section className="container">
           <div>
-            <h2>Log In</h2>
+            <h2>Welcome Hacker!</h2>
             <form onSubmit={onLogin}>
               <div className="form-group">
                 <label htmlFor="email-address"></label>
@@ -90,7 +86,7 @@ const Login = () => {
               <NavLink to="/reset-password">Reset Password</NavLink>
             </p>
             <p className="nav-link">
-              <NavLink to="/signup">Sign Up</NavLink>
+              Not a member? <NavLink to="/signup">Sign Up</NavLink>
             </p>
           </div>
         </section>

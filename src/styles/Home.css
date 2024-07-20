@@ -1,6 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    background: linear-gradient(135deg, #f06, #0d2a72, #782f52, #5b2da1, #153a3e);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    overflow: auto;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/TopologyGraphic.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.5;
+    z-index: 0;
+}
+
 .home-container {
     position: relative;
-    z-index: 1; /* Ensure the container is above the overlay */
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
 }
 
 .home-nav {
@@ -9,9 +60,15 @@
     align-items: center;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 2; /* Ensure the nav is above the overlay */
+    z-index: 4;
+    max-width: 50%;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
 }
 
 .home-nav p {
@@ -30,9 +87,82 @@
     cursor: pointer;
     font-size: 1rem;
     position: relative;
-    z-index: 2; /* Ensure the button is above the overlay */
+    z-index: 2;
+    width: auto;
+    display: inline-block;
 }
 
 .home-nav button:hover {
     background-color: #0056b3;
+}
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background: transparent;
+}
+
+.login-image {
+    flex: 1;
+    text-align: center;
+    margin-right: 40px;
+    animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.login-image img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 50px;
+}
+
+.circle-button {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.circle-button:hover {
+    transform: scale(2);
+}
+
+@media (max-width: 768px) {
+    .home-nav {
+        flex-direction: column;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .home-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
