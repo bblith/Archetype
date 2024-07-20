@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
+import '../styles/SignUp.css'; // Import the CSS file
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -52,10 +53,10 @@ const Signup = () => {
     <main>
       <section className="container">
         <div>
-          <h1>JagHacks</h1>
+          <h2>Create An Account</h2>
           <form onSubmit={onSubmit}>
             <div className="form-group">
-              <label htmlFor="first-name">First Name</label>
+              <label htmlFor="first-name"></label>
               <input
                 id="first-name"
                 name="firstName"
@@ -67,7 +68,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="last-name">Last Name</label>
+              <label htmlFor="last-name"></label>
               <input
                 id="last-name"
                 name="lastName"
@@ -79,19 +80,19 @@ const Signup = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email-address">Email</label>
+              <label htmlFor="email-address"></label>
               <input
                 id="email-address"
                 name="email"
                 type="email"
                 required
-                placeholder="Email address"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password"></label>
               <input
                 id="password"
                 name="password"
@@ -103,7 +104,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="confirm-password">Confirm Password</label>
+              <label htmlFor="confirm-password"></label>
               <input
                 id="confirm-password"
                 name="confirmPassword"
@@ -116,12 +117,12 @@ const Signup = () => {
             </div>
             {error && <p className="error">{error}</p>}
             <div className="form-group">
-              <button type="submit">Sign up</button>
+              <button type="submit">Sign Up</button>
             </div>
           </form>
           <p className="nav-link">
-            Already have an account?{' '}
-            <NavLink to="/login">Sign in</NavLink>
+            {' '}
+            <NavLink to="/login">Login</NavLink>
           </p>
         </div>
       </section>
