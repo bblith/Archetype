@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
-import '../styles/SignUp.css';
+import styles from '../styles/SignUp.module.css'; // Import the CSS module
 
 const Login = () => {
   const navigate = useNavigate();
@@ -39,13 +39,13 @@ const Login = () => {
   };
 
   return (
-    <main className="login-main">
-      <div className="login-content">
-        <section className="container">
+    <main className={styles.loginMain}>
+      <div className={styles.loginContent}>
+        <section className={styles.container}>
           <div>
-            <h2>Welcome Hacker!</h2>
-            <form onSubmit={onLogin}>
-              <div className="form-group">
+            <h2 className={styles.heading}>Welcome Hacker!</h2>
+            <form onSubmit={onLogin} className={styles.form}>
+              <div className={styles.formGroup}>
                 <label htmlFor="email-address"></label>
                 <input
                   id="email-address"
@@ -57,7 +57,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="password"></label>
                 <input
                   id="password"
@@ -69,7 +69,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div className="form-group remember-me">
+              <div className={`${styles.formGroup} ${styles.rememberMe}`}>
                 <input
                   id="remember-me"
                   type="checkbox"
@@ -78,14 +78,14 @@ const Login = () => {
                 />
                 <label htmlFor="remember-me">Remember Me</label>
               </div>
-              <div className="form-group button-container">
-                <button type="submit">Login</button>
+              <div className={`${styles.formGroup} ${styles.buttonContainer}`}>
+                <button type="submit" className={styles.submitButton}>Login</button>
               </div>
             </form>
-            <p className="nav-link">
+            <p className={styles.navLink}>
               <NavLink to="/reset-password">Reset Password</NavLink>
             </p>
-            <p className="nav-link">
+            <p className={styles.navLink}>
               Not a member? <NavLink to="/signup">Sign Up</NavLink>
             </p>
           </div>

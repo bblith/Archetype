@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(135deg, #f06, #0d2a72, #782f52, #5b2da1, #153a3e);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  position: relative;
+  padding-top: 60px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/TopologyGraphic.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.signupMain, .loginMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding-top: 60px;
+}
+
+.signupContent, .loginContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+}
+
+.signupImage, .loginImage {
+  flex: 1;
+  text-align: center;
+  margin-right: 40px;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.container {
+  background: white;
+  backdrop-filter: blur(30px);
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  text-align: center;
+  opacity: 85%;
+  z-index: 2;
+  padding: 40px;
+}
+
+p {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 4rem;
+  background: linear-gradient(135deg, #f06, #0d2a72, #782f52, #5b2da1, #153a3e);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 1rem;
+  color: transparent;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #f06, #0d2a72, #782f52, #5b2da1, #153a3e);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+
+.formGroup input::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  color: #999;
+}
+
+.formGroup.rememberMe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.formGroup.rememberMe input[type="checkbox"] {
+  width: auto;
+  margin-bottom: 5px;
+}
+
+.submitButton {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: #f06;
+  text-decoration: none;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #007bff;
+}
+
+.submitButton:focus {
+    outline: none;
+    border-radius: 30px;
+    padding: 1rem;
+    transform: scale(.95);
+}
+
+
+.navLink {
+  margin-top: 0.5rem;
+  color: #007bff;
+}
+
+.navLink:hover {
+  opacity: 80%;
+}
+
+.navLink a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .signupContent, .loginContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .signupImage, .loginImage {
+    margin: 0 0 20px 0;
+  }
+
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .formGroup input {
+    padding: 0.75rem;
+  }
+
+  .submitButton {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .formGroup input {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .submitButton {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+}

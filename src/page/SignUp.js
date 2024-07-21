@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase';
-import '../styles/SignUp.css'; // Import the CSS file
+import styles from '../styles/SignUp.module.css'; // Import the CSS module
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -42,13 +42,13 @@ const Signup = () => {
   };
 
   return (
-    <main className="signup-main">
-      <div className="signup-content">
-        <section className="container">
+    <main className={styles.signupMain}>
+      <div className={styles.signupContent}>
+        <section className={styles.container}>
           <div>
-            <h2>Create An Account</h2>
-            <form onSubmit={onSubmit}>
-              <div className="form-group">
+            <h2 className={styles.heading}>Create An Account</h2>
+            <form onSubmit={onSubmit} className={styles.form}>
+              <div className={styles.formGroup}>
                 <label htmlFor="first-name"></label>
                 <input
                   id="first-name"
@@ -60,7 +60,7 @@ const Signup = () => {
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="last-name"></label>
                 <input
                   id="last-name"
@@ -72,7 +72,7 @@ const Signup = () => {
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="email-address"></label>
                 <input
                   id="email-address"
@@ -84,7 +84,7 @@ const Signup = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="password"></label>
                 <input
                   id="password"
@@ -96,7 +96,7 @@ const Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="confirm-password"></label>
                 <input
                   id="confirm-password"
@@ -108,12 +108,12 @@ const Signup = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
-              {error && <p className="error">{error}</p>}
-              <div className="form-group">
-                <button type="submit">Sign Up</button>
+              {error && <p className={styles.error}>{error}</p>}
+              <div className={styles.formGroup}>
+                <button type="submit" className={styles.submitButton}>Sign Up</button>
               </div>
             </form>
-            <p className="nav-link">
+            <p className={styles.navLink}>
               <NavLink to="/login">Login</NavLink>
             </p>
           </div>
