@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth, db } from '../firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { auth } from '../firebase';
 import '../styles/SignUp.css'; // Import the CSS file
 
 const Signup = () => {
@@ -33,19 +32,12 @@ const Signup = () => {
         displayName: `${firstName} ${lastName}`
       });
 
-      await setDoc(doc(db, 'users', user.uid), {
-        firstName,
-        lastName,
-        email
-      });
-
-      console.log(user);
-      navigate('/login');
+      // Instead of setting the user data here, we will navigate to the multi-step form
+      navigate('/user-info-form', { state: { userId: user.uid, email: user.email, firstName, lastName } });
     } catch (error) {
-      const errorCode = error.code;
       const errorMessage = error.message;
       setError(errorMessage);
-      console.log(errorCode, errorMessage);
+      console.log(errorMessage);
     }
   };
 

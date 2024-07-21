@@ -84,7 +84,7 @@ body::before {
 }
 
 .home-nav button:hover {
-    background-color: #0056b3;
+    background-color: none;
 }
 
 .home-content {
@@ -164,6 +164,7 @@ body::before {
     position: relative;
     z-index: 1;
     left: -220px;
+    font-size: 1.25rem;
 }
 
 .buttons-container {
@@ -188,7 +189,7 @@ body::before {
 }
 
 .circle-button:hover {
-    transform: scale(2);
+    transform: scale(1.5);
 }
 
 .button-text {
@@ -199,17 +200,6 @@ body::before {
     text-align: center;
 }
 
-.register-button {
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-    width: 400px;
-    border-radius: 0; /* Remove border radius */
-}
-
-.register-button:hover {
-    opacity: 0.8;
-}
 
 .buttons {
     display: flex;
@@ -244,7 +234,7 @@ body::before {
 }
 
 .buttons button + button {
-    --_c: #f06;
+    --_c: #007bff;
     flex: calc(.75 + var(--_s,0));
     background: 
       conic-gradient(from -90deg at calc(1.3*var(--b)) 100%,var(--_c) 119deg, #0000 121deg) 

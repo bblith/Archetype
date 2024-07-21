@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Home.css';
 import cyberBeyond from '../assets/CyberBeyond.png';
 import button1 from '../assets/1.png';
 import button2 from '../assets/2.png';

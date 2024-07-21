@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './page/Landing';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
-import Home from './page/Home'; // New Home component
+import Home from './page/Home';
 import PasswordReset from './components/PasswordReset';
 import ProtectedRoute from './ProtectedRoute';
 import Header from './components/Header';
+import UserInfoForm from './page/UserInfoForm'; // Import the new UserInfoForm component
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
+        <Route path="/user-info-form" element={<UserInfoForm />} /> {/* Add the new form route */}
       </Routes>
     </Router>
   );
