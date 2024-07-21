@@ -28,7 +28,7 @@ const Login = () => {
           localStorage.removeItem('rememberedEmail');
         }
         const user = userCredential.user;
-        navigate('/');
+        navigate('/home'); // Navigate to /home after successful login
         console.log(user);
       })
       .catch((error) => {

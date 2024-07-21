@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Barlow|Tomorrow:400,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    background: linear-gradient(135deg, #f06, #0d2a72, #782f52, #5b2da1, #153a3e);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/TopologyGraphic.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.home-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.home-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 4;
+    max-width: 50%;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+}
+
+.home-nav button {
+    font-family: "Josefin Sans", sans-serif;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #782f52;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    width: auto;
+    display: inline-block;
+    margin: 0 10px;
+    border-radius: 0; /* Remove border radius */
+}
+
+.home-nav button:hover {
+    background-color: #0056b3;
+}
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background: transparent;
+    position: relative;
+}
+
+.login-image {
+    flex: 1;
+    text-align: center;
+    margin-right: 40px;
+    animation: float 10s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.login-image img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Add this to your existing CSS */
+.frame {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 900px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 1rem;
+    font-family: "Josefin Sans", sans-serif;
+    z-index: 1;
+    transition: transform 0.55s ease, opacity 0.75s ease; /* Add transition for smooth effect */
+}
+
+.frame img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.frame-left {
+    left: -40px;
+}
+
+.frame-right {
+    right: -500px;
+}
+
+.frame-text {
+    position: relative;
+    z-index: 1;
+    left: -220px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 50px;
+}
+
+.button-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle-button {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.circle-button:hover {
+    transform: scale(2);
+}
+
+.button-text {
+    margin-top: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+}
+
+.register-button {
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    width: 400px;
+    border-radius: 0; /* Remove border radius */
+}
+
+.register-button:hover {
+    opacity: 0.8;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    width: 380px;
+    gap: 10px;
+    --b: 5px;   /* the border thickness */
+    --h: 1.8em; /* the height */
+    margin: 20px auto;
+}
+
+.buttons button {
+    font-family: "Orbitron", sans-serif;
+    --_c: #ffffff;
+    flex: calc(1.25 + var(--_s,0));
+    min-width: 0;
+    font-size: 30px;
+    font-weight: bold;
+    height: var(--h);
+    cursor: pointer;
+    color: var(--_c);
+    border: var(--b) solid var(--_c);
+    background: 
+      conic-gradient(at calc(100% - 1.3*var(--b)) 0,var(--_c) 209deg, #0000 211deg) 
+      border-box;
+    clip-path: polygon(0 0,100% 0,calc(100% - 0.577*var(--h)) 100%,0 100%);
+    padding: 0 calc(0.288*var(--h)) 0 0;
+    margin: 0 calc(-0.288*var(--h)) 0 0;
+    box-sizing: border-box;
+    transition: flex .4s;
+    border-radius: 0; /* Remove border radius */
+}
+
+.buttons button + button {
+    --_c: #f06;
+    flex: calc(.75 + var(--_s,0));
+    background: 
+      conic-gradient(from -90deg at calc(1.3*var(--b)) 100%,var(--_c) 119deg, #0000 121deg) 
+      border-box;
+    clip-path: polygon(calc(0.577*var(--h)) 0,100% 0,100% 100%,0 100%);
+    margin: 0 0 0 calc(-0.288*var(--h));
+    padding: 0 0 0 calc(0.288*var(--h));
+    border-radius: 0; /* Remove border radius */
+}
+
+.buttons button:focus-visible {
+    outline-offset: calc(-2*var(--b));
+    outline: calc(var(--b)/2) solid #000;
+    background: none;
+    clip-path: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0; /* Remove border radius */
+}
+
+.buttons button:focus-visible + button {
+    background: none;
+    clip-path: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0; /* Remove border radius */
+}
+
+.buttons button:has(+ button:focus-visible) {
+    background: none;
+    clip-path: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0; /* Remove border radius */
+}
+
+button:hover,
+button:active:not(:focus-visible) {
+    --_s: .75;
+}
+
+button:active {
+    box-shadow: inset 0 0 0 100vmax var(--_c);
+    color: #fff;
+    border-radius: 0; /* Remove border radius */
+}
+
+body {
+    display: grid;
+    place-content: center;
+    margin: 0;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .home-nav {
+        flex-direction: column;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .home-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .frame-left {
+        left: -75px;
+    }
+
+    .frame-right {
+        right: -75px;
+    }
+}

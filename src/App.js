@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './page/Home';
+import Landing from './page/Landing';
 import Login from './page/Login';
-import Signup from './page/SignUp';
+import SignUp from './page/SignUp';
+import Home from './page/Home'; // New Home component
 import PasswordReset from './components/PasswordReset';
 import ProtectedRoute from './ProtectedRoute';
 import Header from './components/Header';
@@ -12,17 +13,18 @@ const App = () => {
     <Router>
       <Header />
       <Routes>
-        <Route
-          path="/"
+        <Route path="/" element={<Landing />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/reset-password" element={<PasswordReset />} />
+        <Route 
+          path="/home" 
           element={
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
-          }
+          } 
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/reset-password" element={<PasswordReset />} />
       </Routes>
     </Router>
   );
