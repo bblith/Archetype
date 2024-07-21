@@ -36,9 +36,7 @@ const UserInfoForm = () => {
     linkedIn: '',
     github: '',
     personalWebsite: '',
-    resumeURL: '', // Add resume URL to userInfo state
-    agreeToTerms: false,
-    consentToRecording: false,
+    resumeURL: '', 
   });
   const [resumeFile, setResumeFile] = useState(null);
 
@@ -76,7 +74,6 @@ const UserInfoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation for required fields
     const requiredFields = [
       'fullName',
       'email',
@@ -87,13 +84,11 @@ const UserInfoForm = () => {
       'employerOrSchool',
       'skills',
       'role',
-      'agreeToTerms',
-      'consentToRecording',
     ];
 
     for (const field of requiredFields) {
       if (!userInfo[field]) {
-        alert(`Please fill the required field: ${field}`);
+        alert(`Please complete the required field: ${field}`);
         return;
       }
     }
@@ -118,7 +113,7 @@ const UserInfoForm = () => {
       case 1:
         return (
           <div className="container">
-            <h2>Personal Information</h2>
+            <h2>User Information</h2>
             <form>
               <div className="form-group">
                 <input type="text" id="full-name" name="fullName" value={userInfo.fullName} onChange={handleChange} placeholder="Full Name" required />
@@ -181,6 +176,9 @@ const UserInfoForm = () => {
           <div className="container">
             <h2>Team Information</h2>
             <form>
+            <div className="form-group">
+                <input type="text" id="role" name="role" value={userInfo.role} onChange={handleChange} placeholder="Role in Team" required />
+              </div>
               <div className="form-group">
                 <input type="text" id="team-name" name="teamName" value={userInfo.teamName} onChange={handleChange} placeholder="Team Name (If Applicable)" />
               </div>
@@ -192,9 +190,7 @@ const UserInfoForm = () => {
                   placeholder="Team Members (If Applicable)"
                 />
               </div>
-              <div className="form-group">
-                <input type="text" id="role" name="role" value={userInfo.role} onChange={handleChange} placeholder="Role in Team" required />
-              </div>
+
               <div className="button-container">
                 <button type="button" className="prev-button" onClick={prevStep}>
                   <FontAwesomeIcon icon={faChevronLeft} />
@@ -211,6 +207,9 @@ const UserInfoForm = () => {
           <div className="container">
             <h2>Project Information</h2>
             <form>
+            <div className="form-group">
+                <input type="text" id="preferred-track" name="preferredTrack" value={userInfo.preferredTrack} onChange={handleChange} placeholder="Preferred Track" />
+              </div>
               <div className="form-group">
                 <ReactQuill
                   id="project-idea"
@@ -219,9 +218,7 @@ const UserInfoForm = () => {
                   placeholder="Project Idea"
                 />
               </div>
-              <div className="form-group">
-                <input type="text" id="preferred-track" name="preferredTrack" value={userInfo.preferredTrack} onChange={handleChange} placeholder="Preferred Track" />
-              </div>
+
               <div className="button-container">
                 <button type="button" className="prev-button" onClick={prevStep}>
                   <FontAwesomeIcon icon={faChevronLeft} />
@@ -273,21 +270,10 @@ const UserInfoForm = () => {
                 <input type="url" id="personal-website" name="personalWebsite" value={userInfo.personalWebsite} onChange={handleChange} placeholder="Personal Website" />
               </div>
               <div className="form-group">
-                <label htmlFor="resume-upload">Upload Resume:</label>
+                <label htmlFor="resume-upload">Resume Upload</label>
                 <input type="file" id="resume-upload" name="resume" onChange={handleFileChange} />
               </div>
-              <div className="form-group remember-me">
-                <label>
-                  <input type="checkbox" name="agreeToTerms" checked={userInfo.agreeToTerms} onChange={handleChange} required />
-                  I agree to the terms and conditions
-                </label>
-              </div>
-              <div className="form-group remember-me">
-                <label>
-                  <input type="checkbox" name="consentToRecording" checked={userInfo.consentToRecording} onChange={handleChange} required />
-                  I consent to photography and video recording
-                </label>
-              </div>
+
               <div className="button-container">
                 <button type="button" className="prev-button" onClick={prevStep}>
                   <FontAwesomeIcon icon={faChevronLeft} />
