@@ -7,10 +7,10 @@ import button3 from '../assets/3.png';
 import button4 from '../assets/4.png';
 import frameA from '../assets/FrameA.png';
 import frameB from '../assets/FrameB.png';
-import Navbar from '../components/Navbar'; // Import the Navbar component
+import Navbar from '../components/Navbar'; 
 
 
-const Home = () => {
+const Dashboard = () => {
  
 
   return (
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;

@@ -60,7 +60,7 @@ const Landing = () => {
                  <>
                  WHEN<br />
                  <br />
-                    October X - X<br />
+                    November X - X<br />
                     [TIME]<br />
                     
                 </>

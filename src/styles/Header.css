@@ -16,11 +16,10 @@
     width: 100%;
 }
 
-.header-left h1 {
-    font-family: "Orbitron", sans-serif;
-    color: white;
-    padding: 15%;
-    font-size: 1.5rem;
+.header-left .logo {
+    max-width: 300px;
+    height: auto;
+    padding: 15px;
 }
 
 .header-right .logo {
