@@ -20,9 +20,9 @@ const Navbar = () => {
   return (
     <nav className="home-nav">
       <button onClick={() => navigate('/Home')}>Home</button>
-      <button onClick={() => navigate('/dashboard')}>Dashboard</button>
-      <button onClick={() => navigate('/schedule')}>Schedule</button>
-      <button onClick={() => navigate('/hackerpacks')}>HackerPacks</button>
+      <button onClick={() => navigate('/Dashboard')}>Dashboard</button>
+      <button onClick={() => navigate('/Schedule')}>Schedule</button>
+      <button onClick={() => navigate('/Hackerpack')}>HackerPacks</button>
       <button onClick={handleLogout}>Logout</button>
     </nav>
   );
