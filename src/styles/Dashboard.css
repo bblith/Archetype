@@ -1,6 +1,6 @@
 .dashboard-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start; /* Align items at the top */
     padding: 20px;
     position: relative;
@@ -16,7 +16,7 @@
 
 .userinfo-container {
     display: flex;
-    flex-direction: column; /* Stacks cards vertically */
+    flex-direction: row; /* Stacks cards vertically */
     align-items: center;
     width: 100%;
     max-width: 100%;
@@ -29,7 +29,10 @@
     background-image: url(../assets/DashBackA.png);
     background-position: center;
     background-size: cover;
+    background-blend-mode: difference;
+    background: ;
     width: 100%;
+    min-height: 500px;
     padding: 50px;
     border-radius: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -46,11 +49,19 @@
     font-size: 50px;
 }
 
+
+.card-1{
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    font-size: 100px;
+}
+
 .qr-code-wrapper {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
