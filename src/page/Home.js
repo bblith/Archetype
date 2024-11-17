@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { auth } from '../firebase'; // Firebase auth
-import { useNavigate } from 'react-router-dom'; // Navigation
 import '../styles/Dashboard.css';
 
 const Home = () => {
@@ -71,9 +70,7 @@ const Home = () => {
   const [loggedInUser, setLoggedInUser] = useState('');
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [typeMatchedCandidates, setTypeMatchedCandidates] = useState([]); // Store type-matched profiles
-  const navigate = useNavigate();
+  const [archetypes, setArchetypes] = useState([]); // Store archetypes (type-matched profiles)
 
   useEffect(() => {
     const fetchUser = () => {
@@ -93,9 +90,8 @@ const Home = () => {
     0
   );
 
-  const openModal = (position) => {
-    const firstCandidate = position.candidates[0];
-    setSelectedCandidate(firstCandidate);
+  const openModal = (candidate) => {
+    setSelectedCandidate(candidate);
     setIsModalOpen(true);
   };
 
@@ -126,11 +122,8 @@ const Home = () => {
         reviewed: prevMetrics.reviewed + 1,
       }));
 
-      // Add to type-matched profiles
-      setTypeMatchedCandidates((prevMatches) => [
-        ...prevMatches,
-        selectedCandidate,
-      ]);
+      // Add to Archetypes
+      setArchetypes((prevArchetypes) => [...prevArchetypes, selectedCandidate]);
     } else {
       setMetrics((prevMetrics) => ({
         ...prevMetrics,
@@ -157,10 +150,6 @@ const Home = () => {
     }
   };
 
-  const goToTypeMatches = () => {
-    navigate('/type-matches', { state: { typeMatchedCandidates } });
-  };
-
   return (
     <div className="home-container">
       <Navbar />
@@ -178,14 +167,13 @@ const Home = () => {
           <div className="metric-value">{metrics.recirculated}</div>
           <div className="metric-label">RECIRCULATED</div>
         </div>
-        <div
-          className="metric-card"
-          onClick={goToTypeMatches} // Navigate to Type Matches
-        >
+        <div className="metric-card">
           <div className="metric-value">{metrics.typeMatches}</div>
-          <div className="metric-label">TYPE MATCHES</div>
+          <div className="metric-label">ARCHETYPES</div>
         </div>
       </div>
+
+      {/* Open Positions Section */}
       <div className="positions-container">
         <div className="positions-header">OPEN POSITIONS</div>
         <div className="positions-list">
@@ -193,7 +181,7 @@ const Home = () => {
             <div
               className="position-card"
               key={index}
-              onClick={() => openModal(position)}
+              onClick={() => openModal(position.candidates[0])}
             >
               <div className="position-title">{position.title}</div>
               <div className="position-metric">{position.candidates.length}</div>
@@ -201,6 +189,24 @@ const Home = () => {
           ))}
         </div>
       </div>
+
+      {/* Archetypes Section */}
+      <div className="positions-container">
+        <div className="positions-header">ARCHETYPES</div>
+        <div className="positions-list">
+          {archetypes.map((candidate, index) => (
+            <div
+              className="position-card"
+              key={index}
+              onClick={() => openModal(candidate)}
+            >
+              <div className="position-title">{candidate.name}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
       {isModalOpen && selectedCandidate && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -212,52 +218,20 @@ const Home = () => {
             </div>
             <div className="modal-body">
               <div className="candidate-details">
-                <div
-                  className={`detail-box ${
-                    selectedCandidate?.approvals.workExperience
-                      ? 'approved'
-                      : ''
-                  }`}
-                  onClick={() => toggleApproval('workExperience')}
-                >
-                  <div className="detail-header">Work Experience</div>
-                  <div className="detail-content">
-                    {selectedCandidate?.workExperience}
+                {Object.keys(selectedCandidate.approvals).map((attribute) => (
+                  <div
+                    key={attribute}
+                    className={`detail-box ${
+                      selectedCandidate.approvals[attribute] ? 'approved' : ''
+                    }`}
+                    onClick={() => toggleApproval(attribute)}
+                  >
+                    <div className="detail-header">{attribute}</div>
+                    <div className="detail-content">
+                      {selectedCandidate[attribute] || 'Not Available'}
+                    </div>
                   </div>
-                </div>
-                <div
-                  className={`detail-box ${
-                    selectedCandidate?.approvals.education ? 'approved' : ''
-                  }`}
-                  onClick={() => toggleApproval('education')}
-                >
-                  <div className="detail-header">Education</div>
-                  <div className="detail-content">
-                    {selectedCandidate?.education}
-                  </div>
-                </div>
-                <div
-                  className={`detail-box ${
-                    selectedCandidate?.approvals.degree ? 'approved' : ''
-                  }`}
-                  onClick={() => toggleApproval('degree')}
-                >
-                  <div className="detail-header">Degree</div>
-                  <div className="detail-content">
-                    {selectedCandidate?.degree}
-                  </div>
-                </div>
-                <div
-                  className={`detail-box ${
-                    selectedCandidate?.approvals.skills ? 'approved' : ''
-                  }`}
-                  onClick={() => toggleApproval('skills')}
-                >
-                  <div className="detail-header">Skills</div>
-                  <div className="detail-content">
-                    {selectedCandidate?.skills.join(', ')}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <button className="submit-button" onClick={handleSubmit}>

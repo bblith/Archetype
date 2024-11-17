@@ -7,6 +7,7 @@
     min-height: 100vh; /* Full viewport height */
     padding: 20px;
     box-sizing: border-box; /* Include padding and border in element's total width/height */
+    overflow-y: auto; /* Make the page scrollable */
 }
 
 /* Dashboard container for the metric cards */
@@ -58,13 +59,14 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Space between Open Positions and Archetypes */
 }
 
 .positions-header {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: #000000; /* White header text */
+    color: #000000; /* Black header text */
     margin-bottom: 20px;
 }
 
@@ -140,292 +142,26 @@
     width: 100%;
 }
 
-/* Candidate section */
-.candidate-section {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    color: #000000;
+/* Archetypes Section */
+.archetypes-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #e1e1e1;
     border-radius: 10px;
     padding: 20px;
-    gap: 10px;
-    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Candidate info */
-.candidate-info {
+.archetypes-header {
     font-size: 20px;
     font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-
-/* Candidate details */
-.candidate-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px;
-}
-
-.detail-box {
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 10px;
-    padding: 10px;
     text-align: center;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Close button */
-.close-button {
-    margin-top: 20px;
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.close-button:hover {
-    background-color: #ffffff;
-    color: #e53935;
-    border: 1px solid #e53935;
-}
-
-/* Modal overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modal content */
-.modal-content {
-    background-color: #e53935; /* Red modal background */
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
-}
-
-/* Modal header */
-.modal-header {
-    font-size: 24px;
-    font-weight: bold;
+    color: #000000; /* Black header text */
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* Modal body */
-.modal-body {
+.archetypes-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 100%;
+    gap: 10px; /* Space between archetype cards */
 }
-
-/* Candidate details container */
-.candidate-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px;
-}
-
-/* Each detail box */
-.detail-box {
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.detail-header {
-    font-size: 16px;
-    font-weight: bold;
-    color: #000000;
-}
-
-/* Initially hide the content */
-.detail-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for the hidden content */
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: normal;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Show content on hover */
-.detail-box:hover .detail-content {
-    opacity: 1;
-}
-
-/* Modal overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modal content */
-.modal-content {
-    background-color: #e0e0e0; /* Red modal background */
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
-    position: relative; /* Allow positioning of the close button */
-}
-
-/* Close button */
-.close-modal-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-    cursor: pointer;
-    outline: none;
-}
-
-.close-modal-button:hover {
-    color: #000000;
-}
-
-/* Modal header */
-.modal-header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Candidate details container */
-.candidate-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px;
-}
-
-/* Each detail box */
-.detail-box {
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* Approved state */
-.detail-box.approved {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.detail-header {
-    font-size: 16px;
-    font-weight: bold;
-    color: inherit;
-}
-
-/* Initially hide the content */
-.detail-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for the hidden content */
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: normal;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Show content on hover */
-.detail-box:hover .detail-content {
-    opacity: 1;
-}
-
-.submit-button {
-    background-color: #ffffff;
-    color: #e53935;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #e53935;
-    color: #ffffff;
-}
-
-.welcome-message {
-    font-family: "Prompt", serif;
-    font-size: 24px;
-    font-weight: 500;
-    margin: 20px 0;
-    text-align: center;
-    color: #333;
-  }
-  
-  

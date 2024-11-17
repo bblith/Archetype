@@ -4,7 +4,6 @@ import Landing from './page/Landing';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
 import Home from './page/Home';
-import TypeMatches from './page/TypeMatches';
 import PasswordReset from './components/PasswordReset';
 import ProtectedRoute from './ProtectedRoute';
 import Header from './components/Header';
@@ -29,14 +28,7 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        <Route 
-          path="/TypeMatches" 
-          element={
-            <ProtectedRoute>
-              <TypeMatches />
-            </ProtectedRoute>
-          } 
-        />
+      
        
        
     
