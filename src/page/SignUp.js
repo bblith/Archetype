@@ -46,7 +46,7 @@ const Signup = () => {
       <div className={styles.signupContent}>
         <section className={styles.container}>
           <div>
-            <h2 className={styles.heading}>Create An Account</h2>
+            <h2 className={styles.heading}>CREATE AN ACCOUNT</h2>
             <form onSubmit={onSubmit} className={styles.form}>
               <div className={styles.formGroup}>
                 <label htmlFor="first-name"></label>
@@ -110,7 +110,7 @@ const Signup = () => {
               </div>
               {error && <p className={styles.error}>{error}</p>}
               <div className={styles.formGroup}>
-                <button type="submit" className={styles.submitButton}>Sign Up</button>
+                <button type="submit" className={styles.submitButton}>SIGN UP</button>
               </div>
             </form>
             <p className={styles.navLink}>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
-import styles from '../styles/SignUp.module.css'; // Import the CSS module
+import styles from '../styles/SignUp.module.css'; 
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Login = () => {
           localStorage.removeItem('rememberedEmail');
         }
         const user = userCredential.user;
-        navigate('/home'); // Navigate to /home after successful login
+        navigate('/home'); 
         console.log(user);
       })
       .catch((error) => {
@@ -43,7 +43,7 @@ const Login = () => {
       <div className={styles.loginContent}>
         <section className={styles.container}>
           <div>
-            <h2 className={styles.heading}>Welcome Hacker!</h2>
+            <h2 className={styles.heading}>A SPACE FREE OF BIAS</h2>
             <form onSubmit={onLogin} className={styles.form}>
               <div className={styles.formGroup}>
                 <label htmlFor="email-address"></label>
@@ -79,7 +79,7 @@ const Login = () => {
                 <label htmlFor="remember-me">Remember Me</label>
               </div>
               <div className={`${styles.formGroup} ${styles.buttonContainer}`}>
-                <button type="submit" className={styles.submitButton}>Login</button>
+                <button type="submit" className={styles.submitButton}>LOGIN</button>
               </div>
             </form>
             <p className={styles.navLink}>

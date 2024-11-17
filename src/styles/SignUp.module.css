@@ -9,25 +9,14 @@
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  background: linear-gradient(135deg, #f06, #0d2a72, #782f52, #5b2da1, #153a3e);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+
   height: 100vh;
   position: relative;
   padding-top: 60px;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 
 body::before {
   content: "";
@@ -36,7 +25,6 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../assets/TopologyGraphic2.png') no-repeat center center;
   background-size: cover;
   opacity: 0.25;
   z-index: 0;
@@ -64,7 +52,7 @@ body::before {
   flex: 1;
   text-align: center;
   margin-right: 40px;
-  animation: float 10s ease-in-out infinite;
+
 }
 
 @keyframes float {
@@ -82,7 +70,7 @@ body::before {
 .container {
   background: white;
   backdrop-filter: blur(30px);
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   text-align: center;
   opacity: 85%;
@@ -97,7 +85,7 @@ p {
 h1 {
   font-family: "Orbitron", sans-serif;
   margin-bottom: 1rem;
-  color: #007bff;
+  color: #a0a0a0;
   font-size: 4rem;
   
   -webkit-background-clip: text;
@@ -105,9 +93,9 @@ h1 {
 }
 
 h2 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Prompt", serif;
   margin-bottom: 1rem;
-  color: #007bff;
+  color: #000000;
   font-size: 2rem;
   
   -webkit-background-clip: text;
@@ -128,7 +116,7 @@ h2 {
   width: 100%;
   padding: 1rem;
   border: 1px solid #ccc;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .formGroup input::placeholder {
@@ -152,17 +140,17 @@ h2 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1rem;
   color: white;
-  background-color: #007bff;
+  background-color: #ff3131;
   text-decoration: none;
   border: none;
   padding: 1rem;
   width: 100%;
-  border-radius: 30px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .submitButton:hover {
-  background-color: #004894;
+  background-color: #ca1818;
 }
 
 .submitButton:focus {
@@ -175,7 +163,7 @@ h2 {
 
 .navLink {
   margin-top: 0.5rem;
-  color: #007bff;
+  color: #a0a0a0;
 }
 
 .navLink:hover {
