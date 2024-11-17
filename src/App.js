@@ -5,7 +5,7 @@ import Login from './page/Login';
 import SignUp from './page/SignUp';
 import Home from './page/Home';
 import Dashboard from './page/Dashboard'; // Import the new Dashboard component
-import Schedule from './page/Schedule'; // Import the new Schedule component
+import Schedule from './page/Candidates'; // Import the new Schedule component
 import HackerPack from './page/HackerPack'; // Import the new HackerPacks component
 import PasswordReset from './components/PasswordReset';
 import ProtectedRoute from './ProtectedRoute';

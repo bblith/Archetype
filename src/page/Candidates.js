@@ -5,7 +5,7 @@ import CyberBeyondLine from '../assets/CyberBeyondLine.png';
 
 import Navbar from '../components/Navbar'; 
 
-const HackerPacks = () => {
+const Schedule = () => {
     return (
         <div className="home-container">
           <Navbar />
@@ -19,6 +19,7 @@ const HackerPacks = () => {
     
         </div>
       );
-};
+    };
 
-export default HackerPacks;
+
+export default Schedule;
