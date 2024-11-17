@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Landing.css';
 import cyberBeyondLine from '../assets/CyberBeyondLine.png';
 
-
 const Landing = () => {
   const navigate = useNavigate();
   const [hoveredButton, setHoveredButton] = useState(null);
@@ -35,6 +34,11 @@ const Landing = () => {
         <div className="login-image">
           <img src={cyberBeyondLine} alt="Archetype" />
 
+          {/* Add the text here */}
+          <div className="tagline">
+            Bias-Free Professional Recruitment
+          </div>
+
           <div className="buttons">
             <button onClick={handleRegister}>REGISTER</button>
             <button onClick={handleLogin}>LOGIN</button>
@@ -42,7 +46,6 @@ const Landing = () => {
 
         </div>
       </div>
-
     </div>
   );
 };

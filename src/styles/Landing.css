@@ -297,3 +297,12 @@ body {
         right: -75px;
     }
 }
+
+.tagline {
+    font-family: "Prompt", serif;
+    font-size: 30px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center-align the text */
+    color: #333; /* Dark gray color */
+  }
+  
