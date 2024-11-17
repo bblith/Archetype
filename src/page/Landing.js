@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Landing.css';
-import cyberBeyond from '../assets/CyberBeyond.png';
+import cyberBeyondLine from '../assets/CyberBeyondLine.png';
 
 
 const Landing = () => {
@@ -33,7 +33,7 @@ const Landing = () => {
     <div className="home-container">
       <div className="home-content">
         <div className="login-image">
-          <img src={cyberBeyond} alt="Archetype" />
+          <img src={cyberBeyondLine} alt="Archetype" />
 
           <div className="buttons">
             <button onClick={handleRegister}>REGISTER</button>

@@ -54,7 +54,7 @@
 .positions-container {
     width: 100%;
     max-width: 800px;
-    background-color: #e53935; /* Red background for the positions section */
+    background-color: #e1e1e1; /* Red background for the positions section */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -64,7 +64,7 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: #ffffff; /* White header text */
+    color: #000000; /* White header text */
     margin-bottom: 20px;
 }
 
@@ -305,7 +305,7 @@
 
 /* Modal content */
 .modal-content {
-    background-color: #e53935; /* Red modal background */
+    background-color: #e0e0e0; /* Red modal background */
     border-radius: 10px;
     width: 80%;
     max-width: 600px;
@@ -418,3 +418,14 @@
     background-color: #e53935;
     color: #ffffff;
 }
+
+.welcome-message {
+    font-family: "Prompt", serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import { auth } from '../firebase'; // Firebase auth
-import { useNavigate } from 'react-router-dom'; // Navigation
 import '../styles/Dashboard.css';
 
-const Home = () => {
+const TypeMatches = () => {
   const [metrics, setMetrics] = useState({
     reviewed: 0,
     typeMatches: 0,
@@ -68,25 +66,8 @@ const Home = () => {
     },
   ]);
 
-  const [loggedInUser, setLoggedInUser] = useState('');
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [typeMatchedCandidates, setTypeMatchedCandidates] = useState([]); // Store type-matched profiles
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchUser = () => {
-      const user = auth.currentUser;
-      if (user) {
-        setLoggedInUser(user.displayName || user.email || 'User');
-      } else {
-        setLoggedInUser('Guest');
-      }
-    };
-
-    fetchUser();
-  }, []);
 
   const totalPending = positions.reduce(
     (total, position) => total + position.candidates.length,
@@ -120,18 +101,14 @@ const Home = () => {
     );
 
     if (allApproved) {
+      // If all attributes are approved, the candidate is a type match
       setMetrics((prevMetrics) => ({
         ...prevMetrics,
         typeMatches: prevMetrics.typeMatches + 1,
         reviewed: prevMetrics.reviewed + 1,
       }));
-
-      // Add to type-matched profiles
-      setTypeMatchedCandidates((prevMatches) => [
-        ...prevMatches,
-        selectedCandidate,
-      ]);
     } else {
+      // If not a type match, the candidate is recirculated
       setMetrics((prevMetrics) => ({
         ...prevMetrics,
         recirculated: prevMetrics.recirculated + 1,
@@ -149,22 +126,17 @@ const Home = () => {
       }))
     );
 
-    const nextCandidate = positions[0]?.candidates[1];
+    const nextCandidate = positions[0]?.candidates[1]; // Load next candidate if available
     if (nextCandidate) {
       setSelectedCandidate(nextCandidate);
     } else {
-      closeModal();
+      closeModal(); // Close modal if no more candidates
     }
-  };
-
-  const goToTypeMatches = () => {
-    navigate('/type-matches', { state: { typeMatchedCandidates } });
   };
 
   return (
     <div className="home-container">
       <Navbar />
-      <div className="welcome-message">Welcome, {loggedInUser}!</div>
       <div className="dashboard-container">
         <div className="metric-card">
           <div className="metric-value">{totalPending}</div>
@@ -178,10 +150,7 @@ const Home = () => {
           <div className="metric-value">{metrics.recirculated}</div>
           <div className="metric-label">RECIRCULATED</div>
         </div>
-        <div
-          className="metric-card"
-          onClick={goToTypeMatches} // Navigate to Type Matches
-        >
+        <div className="metric-card">
           <div className="metric-value">{metrics.typeMatches}</div>
           <div className="metric-label">TYPE MATCHES</div>
         </div>
@@ -270,4 +239,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TypeMatches;
