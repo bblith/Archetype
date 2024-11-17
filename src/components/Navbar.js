@@ -20,8 +20,6 @@ const Navbar = () => {
   return (
     <nav className="home-nav">
       <button onClick={() => navigate('/Home')}>Home</button>
-      <button onClick={() => navigate('/Dashboard')}>Dashboard</button>
-      <button onClick={() => navigate('/Schedule')}>Candidates</button>
       <button onClick={handleLogout}>Logout</button>
     </nav>
   );

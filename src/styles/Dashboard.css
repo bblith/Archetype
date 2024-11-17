@@ -1,93 +1,403 @@
-.dashboard-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; /* Align items at the top */
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100vh; /* Full height of the viewport */
-    overflow-y: auto; /* Enable vertical scrolling */
-    border-radius: 30px;
-    scroll-behavior: smooth; /* Smooth scrolling for better UX */
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none;
-}
-
-.userinfo-container {
-    display: flex;
-    flex-direction: row; /* Stacks cards vertically */
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    gap: 20px; /* Space between the two cards */
-    margin-top: 40px;
-    padding-bottom: 20px; /* Ensure there's padding at the bottom for better scrolling experience */
-}
-
-.userinfor-card {
-    background-color: rgb(243, 243, 243);
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: difference;
-    background: ;
-    width: 100%;
-    min-height: 500px;
-    padding: 50px;
-    border-radius: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+/* Overall container for the home page */
+.home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-}
-
-.card-1, .card-2, .card-3 {
-    color: white;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 500;
-    font-size: 50px;
-}
-
-
-.card-1{
-    color: white;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 500;
-    font-size: 100px;
-}
-
-.qr-code-wrapper {
-    position: relative;
     width: 100%;
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+/* Dashboard container for the metric cards */
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap; /* Wrap cards if needed */
+    justify-content: space-around; /* Evenly distribute cards */
+    padding: 20px;
+    gap: 20px; /* Space between cards */
+    width: 100%;
+    max-width: 1200px; /* Limit the width of the dashboard */
+    margin-bottom: 40px; /* Space below the dashboard */
+}
+
+/* Metric cards */
+.metric-card {
+    background-color: #e53935; /* Red background */
+    border-radius: 10px;
+    padding: 20px;
+    width: 150px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
 }
 
-/* Style for aligning the header and content on the same line */
-.userinfo-row {
+.metric-value {
+    font-size: 80px;
+    font-weight: bold;
+    color: #ffffff; /* White text for the value */
+    margin-bottom: 10px;
+}
+
+.metric-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000; /* Black text for the label */
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Positions section */
+.positions-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #e53935; /* Red background for the positions section */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.positions-header {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff; /* White header text */
+    margin-bottom: 20px;
+}
+
+.positions-list {
     display: flex;
-    justify-content: space-between; /* Align items at opposite ends of the row */
-    width: 100%; /* Full width of the container */
-    max-width: 600px; /* Optional: Adjust the width to fit your design */
-    padding: 10px 0; /* Add padding for spacing */
+    flex-direction: column;
+    gap: 10px; /* Space between position cards */
 }
 
-.userinfo-header {
-    font-family: "Prompt", serif;
-    font-weight: 500;
-    font-size: 25px;
+.position-card {
+    background-color: #ffffff; /* White background for individual position cards */
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; /* Space between title and metric */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+}
+
+.position-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000; /* Black text for the position title */
+}
+
+.position-metric {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e53935; /* Red text for the metric */
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #e53935; /* Red modal background */
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+/* Modal header */
+.modal-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Modal body */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Candidate section */
+.candidate-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
     color: #000000;
-    margin-right: 20px; /* Add space between the header and content */
+    border-radius: 10px;
+    padding: 20px;
+    gap: 10px;
+    width: 100%;
 }
 
-.userinfo-content {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 30px;
-    color: #ff3131;
-    font-weight: 500;
-    padding: 5px;
-    text-align: right; /* Align content to the right side */
+/* Candidate info */
+.candidate-info {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* Candidate details */
+.candidate-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
+}
+
+.detail-box {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Close button */
+.close-button {
+    margin-top: 20px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #ffffff;
+    color: #e53935;
+    border: 1px solid #e53935;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #e53935; /* Red modal background */
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+/* Modal header */
+.modal-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Modal body */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Candidate details container */
+.candidate-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
+}
+
+/* Each detail box */
+.detail-box {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.detail-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Initially hide the content */
+.detail-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for the hidden content */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show content on hover */
+.detail-box:hover .detail-content {
+    opacity: 1;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #e53935; /* Red modal background */
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    position: relative; /* Allow positioning of the close button */
+}
+
+/* Close button */
+.close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+.close-modal-button:hover {
+    color: #000000;
+}
+
+/* Modal header */
+.modal-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Modal body */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Candidate details container */
+.candidate-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
+}
+
+/* Each detail box */
+.detail-box {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.detail-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Initially hide the content */
+.detail-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for the hidden content */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show content on hover */
+.detail-box:hover .detail-content {
+    opacity: 1;
 }
