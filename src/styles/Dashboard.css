@@ -4,27 +4,26 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
     padding: 20px;
-    box-sizing: border-box; /* Include padding and border in element's total width/height */
-    overflow-y: auto; /* Make the page scrollable */
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
-/* Dashboard container for the metric cards */
+/* Dashboard section */
 .dashboard-container {
     display: flex;
-    flex-wrap: wrap; /* Wrap cards if needed */
-    justify-content: space-around; /* Evenly distribute cards */
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding: 20px;
-    gap: 20px; /* Space between cards */
+    gap: 20px;
     width: 100%;
-    max-width: 1200px; /* Limit the width of the dashboard */
-    margin-bottom: 40px; /* Space below the dashboard */
+    max-width: 1200px;
+    margin-bottom: 40px;
 }
 
-/* Metric cards */
 .metric-card {
-    background-color: #e53935; /* Red background */
+    background-color: #e53935;
     border-radius: 10px;
     padding: 20px;
     width: 150px;
@@ -33,88 +32,92 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .metric-value {
     font-size: 80px;
     font-weight: bold;
-    color: #ffffff; /* White text for the value */
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
 .metric-label {
     font-size: 16px;
     font-weight: bold;
-    color: #000000; /* Black text for the label */
+    color: #000000;
     text-transform: uppercase;
     text-align: center;
 }
 
 /* Positions section */
-.positions-container {
+.positions-container,
+.archetypes-container {
     width: 100%;
     max-width: 800px;
-    background-color: #e1e1e1; /* Red background for the positions section */
+    background-color: #e1e1e1;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Space between Open Positions and Archetypes */
+    margin-bottom: 40px;
 }
 
-.positions-header {
+.positions-header,
+.archetypes-header {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: #000000; /* Black header text */
+    color: #000000;
     margin-bottom: 20px;
 }
 
-.positions-list {
+.positions-list,
+.archetypes-list {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between position cards */
+    gap: 10px;
 }
 
-.position-card {
-    background-color: #ffffff; /* White background for individual position cards */
+.position-card,
+.archetype-card {
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
     display: flex;
-    justify-content: space-between; /* Space between title and metric */
+    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.position-title {
+.position-title,
+.archetype-title {
     font-size: 18px;
     font-weight: bold;
-    color: #000000; /* Black text for the position title */
+    color: #000000;
 }
 
 .position-metric {
     font-size: 24px;
     font-weight: bold;
-    color: #e53935; /* Red text for the metric */
+    color: #e53935;
 }
 
-/* Modal overlay */
+/* Modal styles */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Modal content */
 .modal-content {
-    background-color: #e53935; /* Red modal background */
+    background-color: #e53935;
     border-radius: 10px;
     width: 80%;
     max-width: 600px;
@@ -124,9 +127,9 @@
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #ffffff;
+    position: relative;
 }
 
-/* Modal header */
 .modal-header {
     font-size: 24px;
     font-weight: bold;
@@ -134,7 +137,6 @@
     text-align: center;
 }
 
-/* Modal body */
 .modal-body {
     display: flex;
     flex-direction: column;
@@ -142,26 +144,104 @@
     width: 100%;
 }
 
-/* Archetypes Section */
-.archetypes-container {
-    width: 100%;
-    max-width: 800px;
-    background-color: #e1e1e1;
+/* Candidate details */
+.candidate-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.detail-box {
+    background-color: #ffffff;
+    color: #000000;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.archetypes-header {
-    font-size: 20px;
-    font-weight: bold;
+    padding: 50px;
     text-align: center;
-    color: #000000; /* Black header text */
-    margin-bottom: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.archetypes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between archetype cards */
+.detail-box.approved {
+    background-color: #000000;
+    color: #ffffff;
 }
+
+.detail-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: inherit;
+}
+
+.detail-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.detail-box:hover .detail-content {
+    opacity: 1;
+    color: #ffffff;
+}
+
+/* Buttons */
+.submit-button {
+    background-color: #ffffff;
+    color: #e53935;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    background-color: #e53935;
+    color: #ffffff;
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-modal-button:hover {
+    color: #000000;
+}
+
+/* Welcome message */
+.welcome-message {
+    font-family: "Prompt", serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+}
+

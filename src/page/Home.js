@@ -3,6 +3,13 @@ import Navbar from '../components/Navbar';
 import { auth } from '../firebase'; // Firebase auth
 import '../styles/Dashboard.css';
 
+const attributeTitles = {
+  workExperience: 'Work Experience',
+  education: 'Education',
+  degree: 'Degree',
+  skills: 'Skills',
+};
+
 const Home = () => {
   const [metrics, setMetrics] = useState({
     reviewed: 0,
@@ -43,6 +50,48 @@ const Home = () => {
             skills: false,
           },
         },
+        {
+          name: 'Mike Johnson',
+          age: 30,
+          workExperience: '4 years at DevCorp',
+          education: 'Master of Computer Science',
+          degree: 'M.Sc.',
+          skills: ['C++', 'Python', 'Docker'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
+        {
+          name: 'Emma Wilson',
+          age: 27,
+          workExperience: '3 years at Cloud Solutions',
+          education: 'Bachelor of Information Systems',
+          degree: 'B.Sc.',
+          skills: ['AWS', 'Azure', 'Kubernetes'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
+        {
+          name: 'Sarah Lee',
+          age: 25,
+          workExperience: '1 year at StartTech',
+          education: 'Bachelor of Computer Engineering',
+          degree: 'B.Sc.',
+          skills: ['Java', 'Spring Boot', 'Hibernate'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
       ],
     },
     {
@@ -63,9 +112,66 @@ const Home = () => {
             skills: false,
           },
         },
+        {
+          name: 'Chris Evans',
+          age: 29,
+          workExperience: '4 years at InsightAI',
+          education: 'Bachelor of Mathematics',
+          degree: 'B.Sc.',
+          skills: ['R', 'TensorFlow', 'Tableau'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
+        {
+          name: 'Sophia Taylor',
+          age: 31,
+          workExperience: '6 years at Predictive Analytics Ltd.',
+          education: 'PhD in Statistics',
+          degree: 'PhD',
+          skills: ['Deep Learning', 'SAS', 'SQL'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
+        {
+          name: 'Daniel Brown',
+          age: 27,
+          workExperience: '2 years at DataBridge',
+          education: 'Bachelor of Data Analytics',
+          degree: 'B.Sc.',
+          skills: ['Pandas', 'NumPy', 'Power BI'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
+        {
+          name: 'Rachel Green',
+          age: 34,
+          workExperience: '7 years at AI Insight',
+          education: 'Master of Computer Science',
+          degree: 'M.Sc.',
+          skills: ['NLP', 'Transformers', 'AWS Sagemaker'],
+          approvals: {
+            workExperience: false,
+            education: false,
+            degree: false,
+            skills: false,
+          },
+        },
       ],
     },
   ]);
+  
 
   const [loggedInUser, setLoggedInUser] = useState('');
   const [selectedCandidate, setSelectedCandidate] = useState(null);
@@ -226,7 +332,7 @@ const Home = () => {
                     }`}
                     onClick={() => toggleApproval(attribute)}
                   >
-                    <div className="detail-header">{attribute}</div>
+                    <div className="detail-header">{attributeTitles[attribute]}</div>
                     <div className="detail-content">
                       {selectedCandidate[attribute] || 'Not Available'}
                     </div>
