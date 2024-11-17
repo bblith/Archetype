@@ -344,14 +344,6 @@
     text-align: center;
 }
 
-/* Modal body */
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
 /* Candidate details container */
 .candidate-details {
     display: grid;
@@ -371,12 +363,19 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Approved state */
+.detail-box.approved {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .detail-header {
     font-size: 16px;
     font-weight: bold;
-    color: #000000;
+    color: inherit;
 }
 
 /* Initially hide the content */
@@ -400,4 +399,22 @@
 /* Show content on hover */
 .detail-box:hover .detail-content {
     opacity: 1;
+}
+
+.submit-button {
+    background-color: #ffffff;
+    color: #e53935;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #e53935;
+    color: #ffffff;
 }
