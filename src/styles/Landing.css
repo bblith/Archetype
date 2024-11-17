@@ -10,26 +10,15 @@
 
 body {
     font-family: "Josefin Sans", sans-serif;
-    background-color: white;
-    background-size: 400% 400%;
-
+    background-color: #ffffff;
+    background-image: url(http://www.transparenttextures.com/patterns/climpek.png);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 300vh;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+
 
 body::before {
     content: "";

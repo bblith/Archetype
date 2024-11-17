@@ -38,7 +38,8 @@ const Landing = () => {
     <div className="home-container">
       <div className="home-content">
         <div className="login-image">
-          <img src={cyberBeyond} alt="Archetype Python" />
+          <img src={cyberBeyond} alt="Archetype" />
+
           <div className="buttons">
             <button onClick={handleRegister}>REGISTER</button>
             <button onClick={handleLogin}>LOGIN</button>
